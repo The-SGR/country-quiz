@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Country Quiz</string>
+    <string name="start_text">Aloita</string>
+    <string name="back_text">Takaisin</string>
+    <string name="continue_text">Jatkaa</string>
+    <string name="selection_text">Valitse tietokilpailu</string>
+    <string name="us_states_quiz">Nimeä kaikki 50 Yhdysvaltain osavaltiota</string>
+    <string name="rus_subjects_quiz">Nimeä kaikki 85 Venäjän kansalaista</string>
+    <string name="check_btn">Tarkistus</string>
+    <string name="text_hint">Anna osavaltion nimi (vain englanniksi)</string>
+</resources>

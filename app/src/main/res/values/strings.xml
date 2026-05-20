@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Country Quiz</string>
+    <string name="beginning" translatable="false">Welcome to the Country Quiz!</string>
+    <string name="start_text">Start</string>
+    <string name="back_text">Back</string>
+    <string name="continue_text">Continue</string>
+    <string name="selection_text">Choose a Quiz</string>
+    <string name="us_states_quiz">Name all 50 US states</string>
+    <string name="rus_subjects_quiz">Name all 85 subjects of Russia</string>
+    <string name="check_btn">Check</string>
+    <string name="text_hint">Enter the subject name (only in English)</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="tg" translatable="false">For any other questions, <a href="https://t.me/the_sgr1">contact me on Telegram.</a></string>
+</resources>

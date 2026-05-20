@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Country Quiz</string>
+    <string name="start_text">Начать</string>
+    <string name="back_text">Назад</string>
+    <string name="continue_text">Продолжить</string>
+    <string name="selection_text">Выберите тест</string>
+    <string name="us_states_quiz">Назовите все 50 штатов США</string>
+    <string name="rus_subjects_quiz">Назовите все 85 субъектов РФ</string>
+    <string name="check_btn">Проверить</string>
+    <string name="text_hint">Введите название субъекта (только на английском)</string>
+</resources>
