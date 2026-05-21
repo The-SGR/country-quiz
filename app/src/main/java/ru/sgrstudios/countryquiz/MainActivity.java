@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     public long backPressedTime = 0;
     Button gitBtn;
+    Button tgBtn;
 
 
     @Override
@@ -54,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent redirect = new Intent(Intent.ACTION_VIEW);
                 redirect.setData(Uri.parse("https://github.com/The-SGR"));
+                startActivity(redirect);
+            }
+        });
+
+        tgBtn = findViewById(R.id.tg_btn);
+        tgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent redirect = new Intent(Intent.ACTION_VIEW);
+                redirect.setData(Uri.parse("https://t.me/the_sgr1"));
                 startActivity(redirect);
             }
         });

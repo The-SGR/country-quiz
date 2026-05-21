@@ -44,7 +44,7 @@ public class AllUsStatesActivity extends AppCompatActivity {
                     finish();
                 } else {
                     backPressedTime = System.currentTimeMillis();
-                    Toast.makeText(AllUsStatesActivity.this, "again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AllUsStatesActivity.this, R.string.toast_back_press, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -69,18 +69,18 @@ public class AllUsStatesActivity extends AppCompatActivity {
 
                 colorState(code);
 
-                Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.toast_correct, Toast.LENGTH_SHORT).show();
             } else if (guessed.contains(userInput)) {
-                Toast.makeText(this, "Already Guessed!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.toast_already_guessed, Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.toast_incorrect, Toast.LENGTH_SHORT).show();
             }
 
             input.setText("");
             counter.setText(guessed.size() + " / 50");
 
             if (guessed.size() == 50) {
-                Toast.makeText(this, "molodec", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.toast_win, Toast.LENGTH_LONG).show();
             }
         });
 
@@ -108,7 +108,7 @@ public class AllUsStatesActivity extends AppCompatActivity {
 
 
             if (svgContent == null || svgContent.isEmpty()) {
-                Toast.makeText(this, "свгшка херанулась", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.toast_svg_error, Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -220,4 +220,5 @@ public class AllUsStatesActivity extends AppCompatActivity {
     public void back(View view) { finish(); }
 
     // я так задолбался делать это
+    // az963258: тебе ещё субъекты делать :-)
 }
