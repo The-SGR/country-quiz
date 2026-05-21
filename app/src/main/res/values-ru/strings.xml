@@ -9,4 +9,12 @@
     <string name="rus_subjects_quiz">Назовите все 85 субъектов РФ</string>
     <string name="check_btn">Проверить</string>
     <string name="text_hint">Введите название субъекта (только на английском)</string>
+    <string name="alpha_tg">По любым другим вопросам, <a href="https://t.me/the_sgr1">свяжитесь со мной в Telegram.</a></string>
+    <string name="alpha_github">Ранняя альфа.\nЕсли у вас возникнут какие-либо проблемы, <a href="https://github.com/The-SGR/country-quiz">пожалуйста свяжитесь со мной на GitHub</a>.</string>
+    <string name="toast_back_press">Нажмите еще раз, чтобы выйти</string>
+    <string name="toast_correct">Правильно!</string>
+    <string name="toast_already_guessed">Уже угадано!</string>
+    <string name="toast_incorrect">Неправильно</string>
+    <string name="toast_win">Молодец</string>
+    <string name="toast_svg_error">Ошибка загрузки карты</string>
 </resources>
