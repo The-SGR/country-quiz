@@ -17,6 +17,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import ru.sgrstudios.countryquiz.BuildConfig;
+
 public class MainActivity extends AppCompatActivity {
 
     public long backPressedTime = 0;
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        TextView versionText = findViewById(R.id.versionText);
+        versionText.setText(BuildConfig.VERSION_NAME);
+
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -43,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 } else {
                     backPressedTime = System.currentTimeMillis();
-                    Toast.makeText(MainActivity.this, "again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.toast_back_press, Toast.LENGTH_SHORT).show();
                 }
             }
         });

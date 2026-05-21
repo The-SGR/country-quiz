@@ -62,4 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/check_btn" />
 
+    <include layout="@layout/overlay"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

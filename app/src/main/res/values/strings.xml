@@ -19,4 +19,5 @@
     <string name="toast_incorrect">Incorrect</string>
     <string name="toast_win">Congratulations!</string>
     <string name="toast_svg_error">Map loading error</string>
+<!--    <string name="version_text" translatable="false">ea.v2</string> депрекейтед-->
 </resources>

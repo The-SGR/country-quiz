@@ -32,7 +32,7 @@ public class SelectionActivity extends AppCompatActivity {
                     finish();
                 } else {
                     backPressedTime = System.currentTimeMillis();
-                    Toast.makeText(SelectionActivity.this, "again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SelectionActivity.this, R.string.toast_back_press, Toast.LENGTH_SHORT).show();
                 }
             }
         });
