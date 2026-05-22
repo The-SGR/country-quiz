@@ -8,11 +8,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="202dp"
+        android:layout_width="300dp"
         android:layout_height="140dp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/start_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -22,7 +23,7 @@
 
     <Button
         android:id="@+id/start_btn"
-        android:layout_width="250dp"
+        android:layout_width="330dp"
         android:layout_height="55dp"
         android:onClick="openSelection"
         android:text="@string/start_text"
@@ -33,9 +34,9 @@
 
     <Button
         android:id="@+id/tg_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="44dp"
         android:layout_marginBottom="68dp"
         android:text="@string/tg_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,9 +44,9 @@
 
     <Button
         android:id="@+id/github_btn"
-        android:layout_width="96dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="44dp"
         android:layout_marginBottom="68dp"
         android:text="@string/github_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:letterSpacing="0.01"
         android:text="@string/alpha_github"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -67,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
+        android:letterSpacing="0.01"
         android:text="@string/alpha_tg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

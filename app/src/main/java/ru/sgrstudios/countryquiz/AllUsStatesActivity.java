@@ -36,6 +36,9 @@ public class AllUsStatesActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_all_us_states);
 
+        TextView versionText = findViewById(R.id.versionText);
+        versionText.setText(BuildConfig.VERSION_NAME);
+
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -141,7 +144,7 @@ public class AllUsStatesActivity extends AppCompatActivity {
 
     private void colorState(String stateCode) {
 
-        String rule = "." + stateCode + " { fill: #00FF00 !important; }";
+        String rule = "." + stateCode + " { fill: #406c14 !important; }";
 
         if (!dynamicStyles.contains(rule)) {
             dynamicStyles += rule + "\n";
@@ -149,18 +152,6 @@ public class AllUsStatesActivity extends AppCompatActivity {
 
         renderSvg();
     }
-    Set<String> states = new HashSet<>(Arrays.asList(
-            "alabama", "alaska", "arizona", "arkansas", "california",
-            "colorado", "connecticut", "delaware", "florida", "georgia",
-            "hawaii", "idaho", "illinois", "indiana", "iowa",
-            "kansas", "kentucky", "louisiana", "maine", "maryland",
-            "massachusetts", "michigan", "minnesota", "mississippi", "missouri",
-            "montana", "nebraska", "nevada", "new hampshire", "new jersey",
-            "new mexico", "new york", "north carolina", "north dakota", "ohio",
-            "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina",
-            "south dakota", "tennessee", "texas", "utah", "vermont",
-            "virginia", "washington", "west virginia", "wisconsin", "wyoming"
-    ));
 
     Set<String> guessed = new HashSet<>();
 

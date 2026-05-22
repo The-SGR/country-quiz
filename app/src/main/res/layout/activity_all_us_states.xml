@@ -21,7 +21,7 @@
 
     <Button
         android:id="@+id/check_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
         android:text="@string/check_btn"
@@ -31,7 +31,7 @@
 
     <Button
         android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:onClick="back"
@@ -53,12 +53,12 @@
         android:id="@+id/counter_text"
         android:layout_width="67dp"
         android:layout_height="23dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="0 / 50"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/check_btn" />
 
