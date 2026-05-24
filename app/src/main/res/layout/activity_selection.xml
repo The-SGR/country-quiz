@@ -47,7 +47,7 @@
 
             <Button
                 android:id="@+id/us_states_button"
-                android:layout_width="300dp"
+                android:layout_width="370dp"
                 android:layout_height="50dp"
                 android:onClick="openAllUsStates"
                 android:layout_margin="6dp"
@@ -55,11 +55,19 @@
 
             <Button
                 android:id="@+id/rus_subjects_button"
-                android:layout_width="300dp"
+                android:layout_width="370dp"
                 android:layout_height="50dp"
                 android:onClick="wip"
                 android:layout_margin="6dp"
                 android:text="@string/rus_subjects_quiz" />
+
+            <Button
+                android:id="@+id/countries_europe_button"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:onClick="wip"
+                android:layout_margin="6dp"
+                android:text="@string/europe_countries_quiz" />
         </LinearLayout>
 
 

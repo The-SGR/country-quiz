@@ -13,17 +13,15 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-public class AllUsStatesActivity extends AppCompatActivity {
+public class AllUsStatesActivity extends BaseActivity {
 
     public long backPressedTime = 0;
     private String svgContent;

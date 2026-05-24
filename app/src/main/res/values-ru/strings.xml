@@ -10,11 +10,14 @@
     <string name="check_btn">Проверить</string>
     <string name="text_hint">Введите название субъекта (только на английском)</string>
     <string name="alpha_tg">По любым другим вопросам, <a href="https://t.me/the_sgr1">свяжитесь со мной в Telegram.</a></string>
-    <string name="alpha_github">Ранняя Альфа.\nЕсли у вас возникнут какие-либо проблемы, <a href="https://github.com/The-SGR/country-quiz">пожалуйста свяжитесь со мной на GitHub</a>.</string>
+    <string name="alpha_github">Альфа версия.\nЕсли у вас возникнут какие-либо проблемы, <a href="https://github.com/The-SGR/country-quiz">пожалуйста свяжитесь со мной на GitHub</a>.</string>
     <string name="toast_back_press">Нажмите еще раз, чтобы выйти</string>
     <string name="toast_correct">Правильно!</string>
     <string name="toast_already_guessed">Уже угадано!</string>
     <string name="toast_incorrect">Неправильно</string>
     <string name="toast_win">Поздравляю!</string>
     <string name="toast_svg_error">Ошибка загрузки карты</string>
+    <string name="amoled_text">Режим AMOLED</string>
+    <string name="europe_countries_quiz">Назовите все европейские страны</string>
+    <string name="settings_text">Настройки</string>
 </resources>

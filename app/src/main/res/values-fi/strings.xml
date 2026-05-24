@@ -10,11 +10,14 @@
     <string name="check_btn">Tarkistus</string>
     <string name="text_hint">Anna osavaltion nimi (vain englanniksi)</string>
     <string name="alpha_tg">Jos sinulla on muita kysymyksiä, <a href="https://t.me/the_sgr1">ota minuun yhteyttä Telegram.</a></string>
-    <string name="alpha_github">Varhainen Alfa-Versio. Jos sinulla on ongelmia, <a href="https://github.com/The-SGR/country-quiz">ota yhteyttä minuun GitHub</a>.</string>
+    <string name="alpha_github">Alfa-Versio. Jos sinulla on ongelmia, <a href="https://github.com/The-SGR/country-quiz">ota yhteyttä minuun GitHub</a>.</string>
     <string name="toast_back_press">Paina takaisin uudelleen poistuaksesi</string>
     <string name="toast_correct">Oikein!</string>
     <string name="toast_already_guessed">Jo arvattu!</string>
     <string name="toast_incorrect">Väärin</string>
     <string name="toast_win">Onnittelut!</string>
     <string name="toast_svg_error">Virhe kartan lataamisessa</string>
+    <string name="amoled_text">AMOLED-tila</string>
+    <string name="europe_countries_quiz">Nimeä kaikki Europaan maat</string>
+    <string name="settings_text">Asetukset</string>
 </resources>

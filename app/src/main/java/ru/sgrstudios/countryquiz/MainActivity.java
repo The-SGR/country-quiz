@@ -11,19 +11,15 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import ru.sgrstudios.countryquiz.BuildConfig;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     public long backPressedTime = 0;
-    Button gitBtn;
-    Button tgBtn;
+    Button gitBtn, tgBtn;
 
 
     @Override
@@ -83,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void openSelection(View view) {
         startActivity(new Intent(this, SelectionActivity.class));
+    }
+
+    public void openSettings (View view) {
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 
 //    public void check(View view) {

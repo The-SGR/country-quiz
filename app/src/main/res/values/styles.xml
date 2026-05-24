@@ -10,4 +10,23 @@
         <item name="android:padding">6dp</item>
     </style>
 
+    <style name="amoledBtnStyle">
+        <item name="android:fontFamily">@font/finlandica</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/btn_amoled_background</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">6dp</item>
+    </style>
+
+    <style name="defaultSwitchStyle" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="trackTint">@color/brown</item>
+        <item name="thumbTint">@color/dark_brown</item>
+    </style>
+
+    <style name="amoledSwitchStyle" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="trackTint">@color/mint</item>
+        <item name="thumbTint">@color/black</item>
+    </style>
+
 </resources>

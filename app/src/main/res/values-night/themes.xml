@@ -1,5 +1,4 @@
 <resources>
-    <!-- Base application theme. -->
     <style name="Base.Theme.CountryQuiz" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/dark_brown</item>
         <item name="android:fontFamily">@font/manrope</item>
@@ -8,5 +7,19 @@
         <item name="android:letterSpacing">0.08</item>
 
         <item name="materialButtonStyle">@style/defaultBtnStyle</item>
+        <item name="materialSwitchStyle">@style/defaultSwitchStyle</item>
+    </style>
+
+    <style name="Amoled.Theme.CountryQuiz" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:fontFamily">@font/manrope</item>
+        <item name="android:textFontWeight">900</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textColor">@color/mint</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="materialButtonStyle">@style/amoledBtnStyle</item>
+        <item name="materialSwitchStyle">@style/amoledSwitchStyle</item>
     </style>
 </resources>
