@@ -3,7 +3,9 @@
 <hr>
 <h3>Changelog (ea.v3)</h3>
 <ul>
-  <li>Significant design updates</li>
+  <li>Added SettingsActivity</li>
+  <li>Added AMOLED support</li>
+  <li>Finally, alpha and not even early</li>
 </ul>
 <hr>
 <h3>Availble quizzes</h3>
