@@ -1,7 +1,7 @@
 <h2 align="center">Country Quiz</h2>
 <p align="center">This is my third and accidentally biggest project in android studio.<br>I have very big plans for this</p>
 <hr>
-<h3>Changelog (alpha.v4)</h3>
+<h3>Changelog (alpha.v5)</h3>
 <ul>
   <li>European Countries Quiz</li>
   <li>Added theme selection (in settings), therefore, added new themes</li>
