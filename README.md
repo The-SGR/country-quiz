@@ -3,14 +3,15 @@
 <hr>
 <h3>Changelog (alpha.v4)</h3>
 <ul>
-  <li>Added SettingsActivity</li>
-  <li>Added AMOLED support</li>
-  <li>Finally, alpha and not even early</li>
+  <li>European Countries Quiz</li>
+  <li>Added theme selection (in settings), therefore, added new themes</li>
+  <li>"Planned" quizzes</li>
 </ul>
 <hr>
 <h3>Availble quizzes</h3>
 <ul>
   <li>Name all 50 U.S. States</li>
+  <li>Name all European Countries</li>
 </ul>
 <hr>
 <br><br><br>
