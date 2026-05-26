@@ -36,4 +36,12 @@ public class SelectionActivity extends BaseActivity {
         startActivity(new Intent(this, AllUsStatesActivity.class));
     }
 
+    public void openAllRusSubjects(View view) {
+        startActivity(new Intent(this, AllRusSubjectsActivity.class));
+    }
+
+    public void openAllEuropeCountries(View view) {
+        startActivity(new Intent(this, AllEuropeCountriesActivity.class));
+    }
+
 }

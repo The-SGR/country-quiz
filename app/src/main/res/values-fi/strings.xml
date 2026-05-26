@@ -20,4 +20,13 @@
     <string name="amoled_text">AMOLED-tila</string>
     <string name="europe_countries_quiz">Nimeä kaikki Europaan maat</string>
     <string name="settings_text">Asetukset</string>
+    <string name="text_hint1">Anna maa nimi (vain englanniksi)</string>
+    <string name="theme_default">Oletuksena</string>
+    <string name="theme_dark">Tumma</string>
+    <string name="theme_blue">Sininen</string>
+    <string name="asia_countries_quiz">Nimeä kaikki Aasian maat</string>
+    <string name="north_america_countries_quiz">Nimeä kaikki Pohjois-Amerikan maat</string>
+    <string name="south_america_countries_quiz">Nimeä kaikki Etelä-Amerikan maat</string>
+    <string name="africa_countries_quiz">Nimeä kaikki Afrikan maat</string>
+    <string name="oceania_countries_quiz">Nimeä kaikki Oseanian maat</string>
 </resources>

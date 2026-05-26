@@ -8,7 +8,7 @@
     <string name="us_states_quiz">Назовите все 50 штатов США</string>
     <string name="rus_subjects_quiz">Назовите все 85 субъектов РФ</string>
     <string name="check_btn">Проверить</string>
-    <string name="text_hint">Введите название субъекта (только на английском)</string>
+    <string name="text_hint">Введите название субъекта (англ.)</string>
     <string name="alpha_tg">По любым другим вопросам, <a href="https://t.me/the_sgr1">свяжитесь со мной в Telegram.</a></string>
     <string name="alpha_github">Альфа версия.\nЕсли у вас возникнут какие-либо проблемы, <a href="https://github.com/The-SGR/country-quiz">пожалуйста свяжитесь со мной на GitHub</a>.</string>
     <string name="toast_back_press">Нажмите еще раз, чтобы выйти</string>
@@ -20,4 +20,13 @@
     <string name="amoled_text">Режим AMOLED</string>
     <string name="europe_countries_quiz">Назовите все европейские страны</string>
     <string name="settings_text">Настройки</string>
+    <string name="text_hint1">Введите название страны (англ.)</string>
+    <string name="theme_default">По умолчанию</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="theme_blue">Синяя</string>
+    <string name="asia_countries_quiz">Назовите все азиатские страны</string>
+    <string name="north_america_countries_quiz">Назовите все североамериканские страны</string>
+    <string name="south_america_countries_quiz">Назовите все южноамериканские страны</string>
+    <string name="africa_countries_quiz">Назовите все африканские страны</string>
+    <string name="oceania_countries_quiz">Назовите все страны Океании</string>
 </resources>

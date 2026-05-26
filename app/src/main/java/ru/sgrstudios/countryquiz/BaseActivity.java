@@ -7,18 +7,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
 
-    private boolean currentTheme;
+    private String currentTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
-        currentTheme = prefs.getBoolean("amoled", false);
+        currentTheme = prefs.getString("theme", "default");
 
-        if (currentTheme) {
-            setTheme(R.style.Amoled_Theme_CountryQuiz);
-        } else {
-            setTheme(R.style.Base_Theme_CountryQuiz);
+        switch (currentTheme) {
+            case "amoled":
+                setTheme(R.style.Amoled_Theme_CountryQuiz);
+                break;
+            case "dark":
+                setTheme(R.style.Dark_Theme_CountryQuiz);
+                break;
+            case "blue":
+                setTheme(R.style.Blue_Theme_CountryQuiz);
+                break;
+            default:
+                setTheme(R.style.Base_Theme_CountryQuiz);
+                break;
         }
 
         super.onCreate(savedInstanceState);
@@ -27,11 +36,10 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
-        boolean newTheme = prefs.getBoolean("amoled", false);
+        String newTheme = prefs.getString("theme", "default");
 
-        if (newTheme != currentTheme) {
+        if (!newTheme.equals(currentTheme)) {
             recreate();
         }
     }

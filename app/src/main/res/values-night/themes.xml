@@ -22,4 +22,18 @@
         <item name="materialButtonStyle">@style/amoledBtnStyle</item>
         <item name="materialSwitchStyle">@style/amoledSwitchStyle</item>
     </style>
+
+    <style name="Dark.Theme.CountryQuiz" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/dark_gray</item>
+
+        <item name="materialButtonStyle">@style/darkBtnStyle</item>
+        <item name="materialSwitchStyle">@style/defaultSwitchStyle</item>
+    </style>
+
+    <style name="Blue.Theme.CountryQuiz" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/navy_blue</item>
+
+        <item name="materialButtonStyle">@style/blueBtnStyle</item>
+        <item name="materialSwitchStyle">@style/defaultSwitchStyle</item>
+    </style>
 </resources>

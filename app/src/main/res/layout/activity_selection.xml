@@ -57,17 +57,63 @@
                 android:id="@+id/rus_subjects_button"
                 android:layout_width="370dp"
                 android:layout_height="50dp"
-                android:onClick="wip"
                 android:layout_margin="6dp"
+                android:backgroundTint="#B40808"
+                android:onClick="wip"
                 android:text="@string/rus_subjects_quiz" />
 
             <Button
                 android:id="@+id/countries_europe_button"
                 android:layout_width="370dp"
                 android:layout_height="50dp"
-                android:onClick="wip"
+                android:onClick="openAllEuropeCountries"
                 android:layout_margin="6dp"
                 android:text="@string/europe_countries_quiz" />
+
+            <Button
+                android:id="@+id/countries_asia_button"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#B40808"
+                android:onClick="wip"
+                android:layout_margin="6dp"
+                android:text="@string/asia_countries_quiz" />
+
+            <Button
+                android:id="@+id/countries_north_america_button"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#B40808"
+                android:onClick="wip"
+                android:layout_margin="6dp"
+                android:text="@string/north_america_countries_quiz" />
+
+            <Button
+                android:id="@+id/countries_south_america_button"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#B40808"
+                android:onClick="wip"
+                android:layout_margin="6dp"
+                android:text="@string/south_america_countries_quiz" />
+
+            <Button
+                android:id="@+id/countries_africa_button"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#B40808"
+                android:onClick="wip"
+                android:layout_margin="6dp"
+                android:text="@string/africa_countries_quiz" />
+
+            <Button
+                android:id="@+id/countries_oceania_button"
+                android:layout_width="370dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#B40808"
+                android:onClick="wip"
+                android:layout_margin="6dp"
+                android:text="@string/oceania_countries_quiz" />
         </LinearLayout>
 
 

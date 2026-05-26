@@ -10,8 +10,8 @@ android {
         applicationId = "ru.sgrstudios.countryquiz"
         minSdk = 29
         targetSdk = 36
-        versionCode = 4
-        versionName = "alpha.v4"
+        versionCode = 5
+        versionName = "alpha.v5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

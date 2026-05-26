@@ -29,6 +29,8 @@
         <activity android:name=".AllUsStatesActivity"
                   android:windowSoftInputMode="adjustResize" />
         <activity android:name=".SettingsActivity" />
+        <activity android:name=".AllRusSubjectsActivity" />
+        <activity android:name=".AllEuropeCountriesActivity" />
     </application>
 
 </manifest>

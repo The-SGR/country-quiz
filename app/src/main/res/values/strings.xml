@@ -9,6 +9,7 @@
     <string name="rus_subjects_quiz">Name all 85 subjects of Russia</string>
     <string name="check_btn">Check</string>
     <string name="text_hint">Enter the subject name (only in English)</string>
+    <string name="text_hint1">Enter the country name (only in English)</string>
     <string name="github_button" translatable="false">GitHub</string>
     <string name="alpha_tg">For any other questions, <a href="https://t.me/the_sgr1">contact me on Telegram.</a></string>
     <string name="alpha_github">Alpha Version.\nIf you have any issues, <a href="https://github.com/The-SGR/country-quiz">please contact me on GitHub</a>.</string>
@@ -22,4 +23,18 @@
     <string name="amoled_text">AMOLED Mode</string>
     <string name="europe_countries_quiz">Name all European Countries</string>
     <string name="settings_text">Settings</string>
+    <string name="theme_default">Default</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_blue">Blue</string>
+    <string name="asia_countries_quiz">Name all Asian Countries</string>
+    <string name="north_america_countries_quiz">Name all North American Countries</string>
+    <string name="south_america_countries_quiz">Name all South American Countries</string>
+    <string name="africa_countries_quiz">Name all African Countries</string>
+    <string name="oceania_countries_quiz">Name all Oceanian Countries</string>
+    <string-array name="themes">
+        <item>@string/theme_default</item>
+        <item>AMOLED</item>
+        <item>@string/theme_dark</item>
+        <item>@string/theme_blue</item>
+    </string-array>
 </resources>
