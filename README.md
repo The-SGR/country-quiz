@@ -12,6 +12,7 @@
 <ul>
   <li>Name all 50 U.S. States</li>
   <li>Name all European Countries</li>
+  <li>Name all 85 (83) subjects of Russia</li>
 </ul>
 <hr>
 <br><br><br>
