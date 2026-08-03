@@ -63,12 +63,19 @@ public class AllRusSubjectsActivity extends BaseActivity {
 
         check.setOnClickListener(v -> {
             String userInput = input.getText().toString().toLowerCase().trim();
-            String code = stateMap.get(userInput);
 
-            if (code != null && !guessed.contains(userInput)) {
+            if (aliasMap.containsKey(userInput)) {
+                userInput = aliasMap.get(userInput);
+            }
+
+            String[] codes = stateMap.get(userInput);
+
+            if (codes != null && !guessed.contains(userInput)) {
                 guessed.add(userInput);
 
-                colorState(code);
+                for (String code : codes) {
+                    colorState(code);
+                }
 
                 Toast.makeText(this, R.string.toast_correct, Toast.LENGTH_SHORT).show();
             } else if (guessed.contains(userInput)) {
@@ -78,9 +85,9 @@ public class AllRusSubjectsActivity extends BaseActivity {
             }
 
             input.setText("");
-            counter.setText(guessed.size() + " / 85");
+            counter.setText(guessed.size() + " / 83");
 
-            if (guessed.size() == 85) {
+            if (guessed.size() == 47) {
                 Toast.makeText(this, R.string.toast_win, Toast.LENGTH_LONG).show();
             }
         });
@@ -98,13 +105,13 @@ public class AllRusSubjectsActivity extends BaseActivity {
 
     private void loadSvg() {
         try {
-            InputStream is = getResources().openRawResource(R.raw.us);
+            InputStream is = getResources().openRawResource(R.raw.rus);
             Scanner scanner = new Scanner(is).useDelimiter("\\A");
             svgContent = scanner.hasNext() ? scanner.next() : "";
             svgContent = svgContent
-                    .replace("width=\"959\"", "")
-                    .replace("height=\"593\"", "")
-                    .replace("<svg", "<svg viewBox=\"0 0 959 593\"");
+                    .replace("width=\"1650\"", "")
+                    .replace("height=\"1000\"", "")
+                    .replace("<svg", "<svg viewBox=\"0 0 1650 1000\"");
             scanner.close();
 
 
@@ -142,7 +149,7 @@ public class AllRusSubjectsActivity extends BaseActivity {
 
     private void colorState(String stateCode) {
 
-        String rule = "." + stateCode + " { fill: #406c14 !important; }";
+        String rule = "#" + stateCode + " { fill: #406c14 !important; }";
 
         if (!dynamicStyles.contains(rule)) {
             dynamicStyles += rule + "\n";
@@ -153,57 +160,236 @@ public class AllRusSubjectsActivity extends BaseActivity {
 
     Set<String> guessed = new HashSet<>();
 
-    Map<String, String> stateMap = new HashMap<String, String>() {{
-        put("belgorod", "BelgorodOblast");
-        put("alaska", "ak");
-        put("arizona", "az");
-        put("arkansas", "ar");
-        put("california", "ca");
-        put("colorado", "co");
-        put("connecticut", "ct");
-        put("delaware", "de");
-        put("florida", "fl");
-        put("georgia", "ga");
-        put("hawaii", "hi");
-        put("idaho", "id");
-        put("illinois", "il");
-        put("indiana", "in");
-        put("iowa", "ia");
-        put("kansas", "ks");
-        put("kentucky", "ky");
-        put("louisiana", "la");
-        put("maine", "me");
-        put("maryland", "md");
-        put("massachusetts", "ma");
-        put("michigan", "mi");
-        put("minnesota", "mn");
-        put("mississippi", "ms");
-        put("missouri", "mo");
-        put("montana", "mt");
-        put("nebraska", "ne");
-        put("nevada", "nv");
-        put("new hampshire", "nh");
-        put("new jersey", "nj");
-        put("new mexico", "nm");
-        put("new york", "ny");
-        put("north carolina", "nc");
-        put("north dakota", "nd");
-        put("ohio", "oh");
-        put("oklahoma", "ok");
-        put("oregon", "or");
-        put("pennsylvania", "pa");
-        put("rhode island", "ri");
-        put("south carolina", "sc");
-        put("south dakota", "sd");
-        put("tennessee", "tn");
-        put("texas", "tx");
-        put("utah", "ut");
-        put("vermont", "vt");
-        put("virginia", "va");
-        put("washington", "wa");
-        put("west virginia", "wv");
-        put("wisconsin", "wi");
-        put("wyoming", "wy");
+    Map<String, String[]> stateMap = new HashMap<String, String[]>() {{
+        put("adygea", new String[]{"Adygeya"});
+        put("altai republic", new String[]{"AltaiRepublic"});
+        put("altai krai", new String[]{"AltaiKrai"});
+        put("amur oblast", new String[]{"AmurOblast"});
+        put("arkhangelsk oblast", new String[]{"ArkhangelskOblast", "path45", "path47", "path49", "path51", "path53", "path55", "path57", "path59"});
+        put("astrakhan oblast", new String[]{"AstrakhanOblast"});
+        put("bashkortostan", new String[]{"Bashkortostan"});
+        put("belgorod oblast", new String[]{"BelgorodOblast"});
+        put("bryansk oblast", new String[]{"BryanskOblast"});
+        put("buryatia", new String[]{"Buryatia"});
+        put("chechen republic", new String[]{"Chechnya"});
+        put("chelyabinsk oblast", new String[]{"ChelyabinskOblast"});
+        put("chukotka", new String[]{"Chukotka"});
+        put("chuvash republic", new String[]{"Chuvashia"});
+        put("dagestan", new String[]{"Dagestan"});
+        put("ingushetia", new String[]{"Ingushetia"});
+        put("irkutsk oblast", new String[]{"IrkutskOblast"});
+        put("ivanovo oblast", new String[]{"IvanovoOblast"});
+        put("jewish autonomous oblast", new String[]{"JewishAutOblast"});
+        put("kabardino-balkaria", new String[]{"KabardinoBalkaria"});
+        put("kaliningrad oblast", new String[]{"KaliningradOblast"});
+        put("kalmykia", new String[]{"Kalmykia"});
+        put("kaluga oblast", new String[]{"KalugaOblast"});
+        put("kamchatka krai", new String[]{"KamchatkaKrai"});
+        put("karachay-cherkessia", new String[]{"KarachayCherkessia"});
+        put("karelia", new String[]{"Karelia"});
+        put("kemerovo oblast", new String[]{"KemerovoOblast"});
+        put("khabarovsk krai", new String[]{"KhabarovskKrai"});
+        put("khakassia", new String[]{"Khakassia"});
+        put("khanty-mansi autonomous okrug", new String[]{"KhantiaMansia"});
+        put("komi", new String[]{"KomiRep"});
+        put("kostroma oblast", new String[]{"KostromaOblast"});
+        put("kirov oblast", new String[]{"KirovOblast"});
+        put("krasnodar krai", new String[]{"KrasnodarKrai"});
+        put("krasnoyarsk krai", new String[]{"path107", "path109", "path111", "path113"});
+        put("kurgan oblast", new String[]{"KurganOblast"});
+        put("kursk oblast", new String[]{"KurskOblast"});
+        put("leningrad oblast", new String[]{"LeningradOblast"});
+        put("lipetsk oblast", new String[]{"LipetskOblast"});
+        put("magadan oblast", new String[]{"MagadanOblast"});
+        put("mari el", new String[]{"MariEl"});
+        put("mordovia", new String[]{"Mordovia"});
+        put("moscow", new String[]{"Moscow"});
+        put("moscow oblast", new String[]{"MoscowOblast"});
+        put("murmansk oblast", new String[]{"MurmanskOblast"});
+        put("nenets autonomous okrug", new String[]{"NenetsAutDistrict"});
+        put("nizhny novgorod oblast", new String[]{"NizhnyNovgorodOblast"});
+        put("north ossetia", new String[]{"NorthOssetia"});
+        put("novgorod oblast", new String[]{"NovgorodOblast"});
+        put("novosibirsk oblast", new String[]{"NovosibirskOblast"});
+        put("omsk oblast", new String[]{"OmskOblast"});
+        put("orenburg oblast", new String[]{"OrenburgOblast"});
+        put("oryol oblast", new String[]{"OryolOblast"});
+        put("penza oblast", new String[]{"PenzaOblast"});
+        put("perm krai", new String[]{"PermKrai"});
+        put("primorsky krai", new String[]{"PrimorskyKrai"});
+        put("pskov oblast", new String[]{"PskovOblast"});
+        put("rostov oblast", new String[]{"RostovOblast"});
+        put("ryazan oblast", new String[]{"RyazanOblast"});
+        put("saint petersburg", new String[]{"SaintPetersburg"});
+        put("sakhalin oblast", new String[]{"SakhalinOblast"});
+        put("sakha", new String[]{"Yakutia"});
+        put("samara oblast", new String[]{"SamaraOblast"});
+        put("saratov oblast", new String[]{"SaratovOblast"});
+        put("smolensk oblast", new String[]{"SmolenskOblast"});
+        put("stavropol krai", new String[]{"StavropolKrai"});
+        put("sverdlovsk oblast", new String[]{"SverdlovskOblast"});
+        put("tambov oblast", new String[]{"TambovOblast"});
+        put("tatarstan", new String[]{"Tatarstan"});
+        put("tomsk oblast", new String[]{"TomskOblast"});
+        put("tula oblast", new String[]{"TulaOblast"});
+        put("tuva", new String[]{"Tuva"});
+        put("tver oblast", new String[]{"TverOblast"});
+        put("tyumen oblast", new String[]{"TyumenOblast"});
+        put("udmurtia", new String[]{"Udmurtia"});
+        put("ulyanovsk oblast", new String[]{"UlyanovskOblast"});
+        put("vladimir oblast", new String[]{"VladimirOblast"});
+        put("volgograd oblast", new String[]{"VolgogradOblast"});
+        put("vologda oblast", new String[]{"VologdaOblast"});
+        put("voronezh oblast", new String[]{"VoronezhOblast"});
+        put("yamalo-nenets autonomous okrug", new String[]{"YamaloNenetsAutDistrict"});
+        put("yaroslavl oblast", new String[]{"YaroslavlOblast"});
+        put("zabaykalsky krai", new String[]{"ChitaOblast"});
+    }};
+
+    Map<String, String> aliasMap = new HashMap<String, String>() {{
+        put("adygeya", "adygea");
+        put("alania", "north ossetia");
+
+        put("altay", "altai republic");
+        put("altai", "altai republic");
+
+        put("amur", "amur oblast");
+        put("arkhangelsk", "arkhangelsk oblast");
+        put("astrakhan", "astrakhan oblast");
+        put("belgorod", "belgorod oblast");
+        put("bryansk", "bryansk oblast");
+
+        put("bashkiria", "bashkortostan");
+        put("ufa", "bashkortostan");
+
+        put("chechnya", "chechen republic");
+        put("chechenia", "chechen republic");
+        put("chelyabinsk", "chelyabinsk oblast");
+
+        put("chita", "chita oblast");
+        put("zabaykalye", "chita oblast");
+        put("transbaikal", "chita oblast");
+        put("zabaikalye", "chita oblast");
+
+        put("chuvashia", "chuvash republic");
+
+        put("irkutsk", "irkutsk oblast");
+        put("ivanovo", "ivanovo oblast");
+
+        put("birobidzhan", "jewish autonomous oblast");
+        put("eao", "jewish autonomous oblast");
+        put("evreyskaya avtonomnaya oblast", "jewish autonomous oblast");
+
+        put("kabardino balkaria", "kabardino-balkaria");
+        put("kabardino balkar republic", "kabardino-balkaria");
+
+        put("kaliningrad", "kaliningrad oblast");
+        put("kaluga", "kaluga oblast");
+        put("kamchatka", "kamchatka krai");
+
+        put("karachay cherkessia", "karachay-cherkessia");
+        put("karachaevo-cherkessia", "karachay-cherkessia");
+
+        put("petrozavodsk", "karelia");
+
+        put("kemerovo", "kemerovo oblast");
+        put("kuzbass", "kemerovo oblast");
+
+        put("khabarovsk", "khabarovsk krai");
+
+        put("khanty-mansi", "khanty-mansi autonomous okrug");
+        put("khanty mansi", "khanty-mansi autonomous okrug");
+        put("hmao", "khanty-mansi autonomous okrug");
+
+        put("kostroma", "kostroma oblast");
+        put("kirov", "kirov oblast");
+        put("krasnodar", "krasnodar krai");
+        put("krasnoyarsk", "krasnoyarsk krai");
+        put("kurgan", "kurgan oblast");
+        put("kursk", "kursk oblast");
+        put("leningrad", "leningrad oblast");
+        put("lipetsk", "lipetsk oblast");
+        put("magadan", "magadan oblast");
+
+        put("msk", "moscow");
+        put("moscow city", "moscow");
+
+        put("murmansk", "murmansk oblast");
+
+        put("nenets", "nenets autonomous okrug");
+        put("nao", "nenets autonomous okrug");
+
+        put("nizhny novgorod", "nizhny novgorod oblast");
+        put("novgorod", "novgorod oblast");
+        put("novosibirsk", "novosibirsk oblast");
+        put("omsk", "omsk oblast");
+        put("orenburg", "orenburg oblast");
+
+        put("oryol", "oryol oblast");
+        put("orel", "oryol oblast");
+
+        put("penza", "penza oblast");
+        put("perm", "perm krai");
+
+        put("primorye", "primorsky krai");
+        put("primorsky", "primorsky krai");
+        put("vladivostok", "primorsky krai");
+
+        put("pskov", "pskov oblast");
+
+        put("rostov", "rostov oblast");
+        put("rostov on don", "rostov oblast");
+
+        put("ryazan", "ryazan oblast");
+
+        put("st petersburg", "saint petersburg");
+        put("st. petersburg", "saint petersburg");
+        put("saint-petersburg", "saint petersburg");
+        put("st petersburg city", "saint petersburg");
+        put("spb", "saint petersburg");
+
+        put("sakha republic", "sakha");
+        put("yakutia", "sakha");
+
+        put("sakhalin", "sakhalin oblast");
+        put("samara", "samara oblast");
+        put("saratov", "saratov oblast");
+        put("smolensk", "smolensk oblast");
+        put("stavropol", "stavropol krai");
+
+        put("sverdlovsk", "sverdlovsk oblast");
+        put("yekaterinburg", "sverdlovsk oblast");
+        put("ekaterinburg", "sverdlovsk oblast");
+        put("ekb", "sverdlovsk oblast");
+        put("yekb", "sverdlovsk oblast");
+
+        put("tambov", "tambov oblast");
+        put("kazan", "tatarstan");
+        put("tomsk", "tomsk oblast");
+        put("tula", "tula oblast");
+        put("tyva", "tuva");
+        put("tver", "tver oblast");
+        put("tyumen", "tyumen oblast");
+
+        put("udmurt republic", "udmurtia");
+        put("izhevsk", "udmurtia");
+
+        put("ulyanovsk", "ulyanovsk oblast");
+        put("vladimir", "vladimir oblast");
+
+
+        put("stalingrad", "volgograd oblast");
+        put("volgograd", "volgograd oblast");
+        put("vlg", "volgograd oblast");
+
+        put("vologda", "vologda oblast");
+        put("voronezh", "voronezh oblast");
+
+        put("yamal", "yamalo-nenets autonomous okrug");
+        put("yamal-nenets", "yamalo-nenets autonomous okrug");
+        put("yanao", "yamalo-nenets autonomous okrug");
+
+        put("yaroslavl", "yaroslavl oblast");
     }};
 
     public void back(View view) { finish(); }

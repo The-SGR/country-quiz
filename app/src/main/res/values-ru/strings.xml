@@ -6,7 +6,7 @@
     <string name="continue_text">Продолжить</string>
     <string name="selection_text">Выберите тест</string>
     <string name="us_states_quiz">Назовите все 50 штатов США</string>
-    <string name="rus_subjects_quiz">Назовите все 85 субъектов РФ</string>
+    <string name="rus_subjects_quiz">Назовите все 85 (83) субъектов РФ</string>
     <string name="check_btn">Проверить</string>
     <string name="text_hint">Введите название субъекта (англ.)</string>
     <string name="alpha_tg">По любым другим вопросам, <a href="https://t.me/the_sgr1">свяжитесь со мной в Telegram.</a></string>
@@ -29,4 +29,6 @@
     <string name="south_america_countries_quiz">Назовите все южноамериканские страны</string>
     <string name="africa_countries_quiz">Назовите все африканские страны</string>
     <string name="oceania_countries_quiz">Назовите все страны Океании</string>
+    <string name="theme_spinner_text">Тема</string>
+    <string name="old_map">Это карта до 2014 года!</string>
 </resources>

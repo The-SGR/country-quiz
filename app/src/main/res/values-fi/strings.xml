@@ -6,7 +6,7 @@
     <string name="continue_text">Jatkaa</string>
     <string name="selection_text">Valitse tietokilpailu</string>
     <string name="us_states_quiz">Nimeä kaikki 50 Yhdysvaltain osavaltiota</string>
-    <string name="rus_subjects_quiz">Nimeä kaikki 85 Venäjän kansalaista</string>
+    <string name="rus_subjects_quiz">Nimeä kaikki 85 (83) Venäjän kansalaista</string>
     <string name="check_btn">Tarkistus</string>
     <string name="text_hint">Anna osavaltion nimi (vain englanniksi)</string>
     <string name="alpha_tg">Jos sinulla on muita kysymyksiä, <a href="https://t.me/the_sgr1">ota minuun yhteyttä Telegram.</a></string>
@@ -29,4 +29,6 @@
     <string name="south_america_countries_quiz">Nimeä kaikki Etelä-Amerikan maat</string>
     <string name="africa_countries_quiz">Nimeä kaikki Afrikan maat</string>
     <string name="oceania_countries_quiz">Nimeä kaikki Oseanian maat</string>
+    <string name="theme_spinner_text">Teema</string>
+    <string name="old_map">Tämä on kartta ennen vuotta 2014!</string>
 </resources>
