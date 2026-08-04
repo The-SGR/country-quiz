@@ -1,4 +1,4 @@
-package ru.sgrstudios.countryquiz;
+package xyz.sgrverse.countryquiz;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -266,10 +266,10 @@ public class AllRusSubjectsActivity extends BaseActivity {
         put("chechenia", "chechen republic");
         put("chelyabinsk", "chelyabinsk oblast");
 
-        put("chita", "chita oblast");
-        put("zabaykalye", "chita oblast");
-        put("transbaikal", "chita oblast");
-        put("zabaikalye", "chita oblast");
+        put("chita", "zabaykalsky krai");
+        put("zabaykalye", "zabaykalsky krai");
+        put("transbaikal", "zabaykalsky krai");
+        put("zabaikalye", "zabaykalsky krai");
 
         put("chuvashia", "chuvash republic");
 

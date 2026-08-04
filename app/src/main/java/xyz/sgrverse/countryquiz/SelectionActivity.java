@@ -1,4 +1,4 @@
-package ru.sgrstudios.countryquiz;
+package xyz.sgrverse.countryquiz;
 
 import android.content.Intent;
 import android.os.Bundle;

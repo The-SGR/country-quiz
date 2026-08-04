@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace = "ru.sgrstudios.countryquiz"
+    namespace = "xyz.sgrverse.countryquiz"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "ru.sgrstudios.countryquiz"
+        applicationId = "xyz.sgrverse.countryquiz"
         minSdk = 29
         targetSdk = 36
         versionCode = 5
-        versionName = "alpha.v6"
+        versionName = "alpha.v6.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

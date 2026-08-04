@@ -1,4 +1,4 @@
-package ru.sgrstudios.countryquiz;
+package xyz.sgrverse.countryquiz;
 //azizsvoid: android studio makes me homicidal
 
 import android.app.Application;

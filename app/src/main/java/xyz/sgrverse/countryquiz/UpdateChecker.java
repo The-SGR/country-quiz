@@ -1,4 +1,4 @@
-package ru.sgrstudios.countryquiz;
+package xyz.sgrverse.countryquiz;
 
 import android.app.AlertDialog;
 import android.content.Context;
