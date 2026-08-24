@@ -44,4 +44,23 @@ public class SelectionActivity extends BaseActivity {
         startActivity(new Intent(this, AllEuropeCountriesActivity.class));
     }
 
+    public void openAllAsiaCountries(View view) {
+        startActivity(new Intent(this, AllAsiaCountriesActivity.class));
+    }
+
+    public void openAllAfricaCountries(View view) {
+        startActivity(new Intent(this, AllAfricaCountriesActivity.class));
+    }
+
+    public void openAllNorthAmericaCountries(View view) {
+        startActivity(new Intent(this, AllNorthAmericaCountriesActivity.class));
+    }
+
+    public void openAllSouthAmericaCountries(View view) {
+        startActivity(new Intent(this, AllSouthAmericaCountriesActivity.class));
+    }
+
+    public void openAllOceaniaCountries(View view) {
+        startActivity(new Intent(this, AllOceaniaCountriesActivity.class));
+    }
 }

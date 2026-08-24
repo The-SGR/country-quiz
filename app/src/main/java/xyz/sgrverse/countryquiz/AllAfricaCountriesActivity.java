@@ -2,9 +2,7 @@ package xyz.sgrverse.countryquiz;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -20,12 +18,11 @@ import androidx.activity.OnBackPressedCallback;
 
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-public class AllEuropeCountriesActivity extends BaseActivity {
+public class AllAfricaCountriesActivity extends BaseActivity {
 
     public long backPressedTime = 0;
     private String svgContent;
@@ -42,7 +39,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
         setContentView(R.layout.activity_quiz);
 
         pm = new ProgressManager(this);
-        guessed = pm.getGuessed("europe");
+        guessed = pm.getGuessed("africa");
 
         TextView versionText = findViewById(R.id.versionText);
         versionText.setText(BuildConfig.VERSION_NAME);
@@ -54,7 +51,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
                     finish();
                 } else {
                     backPressedTime = System.currentTimeMillis();
-                    Toast.makeText(AllEuropeCountriesActivity.this, R.string.toast_back_press, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AllAfricaCountriesActivity.this, R.string.toast_back_press, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -70,7 +67,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
         mapView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
         mapView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-        counter.setText(guessed.size() + " / 47");
+        counter.setText(guessed.size() + " / 53");
 
         check.setOnClickListener(v -> {
             String userInput = input.getText().toString().toLowerCase().trim();
@@ -83,7 +80,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
 
             if (codes != null && !guessed.contains(userInput)) {
                 guessed.add(userInput);
-                pm.markGuessed("europe", userInput);
+                pm.markGuessed("africa", userInput);
 
                 for (String code : codes) {
                     colorState(code);
@@ -97,9 +94,9 @@ public class AllEuropeCountriesActivity extends BaseActivity {
             }
 
             input.setText("");
-            counter.setText(guessed.size() + " / 47");
+            counter.setText(guessed.size() + " / 53");
 
-            if (guessed.size() == 47) {
+            if (guessed.size() == 53) {
                 Toast.makeText(this, R.string.toast_win, Toast.LENGTH_LONG).show();
             }
         });
@@ -118,13 +115,13 @@ public class AllEuropeCountriesActivity extends BaseActivity {
 
     private void loadSvg() {
         try {
-            InputStream is = getResources().openRawResource(R.raw.europe);
+            InputStream is = getResources().openRawResource(R.raw.africa);
             Scanner scanner = new Scanner(is).useDelimiter("\\A");
             svgContent = scanner.hasNext() ? scanner.next() : "";
             svgContent = svgContent
-                    .replace("width=\"593\"", "")
-                    .replace("height=\"606\"", "")
-                    .replace("<svg", "<svg viewBox=\"50 0 500 600\"");
+                    .replace("width=\"1000\"", "")
+                    .replace("height=\"1000\"", "")
+                    .replace("<svg", "<svg viewBox=\"50 0 1000 1000\"");
             scanner.close();
 
 
@@ -199,72 +196,66 @@ public class AllEuropeCountriesActivity extends BaseActivity {
     }
 
     Map<String, String[]> stateMap = new HashMap<String, String[]>() {{
-        put("albania", new String[]{"al"});
-        put("andorra", new String[]{"ad"});
-        put("austria", new String[]{"at"});
-        put("belarus", new String[]{"by"});
-        put("belgium", new String[]{"be"});
-        put("bosnia and herzegovina", new String[]{"ba"});
-        put("bosnia", new String[]{"ba"});
-        put("bulgaria", new String[]{"bg"});
-        put("croatia", new String[]{"hr"});
-        put("cyprus", new String[]{"cy", "nc"});
-        put("czechia", new String[]{"cz"});
-        put("czech", new String[]{"cz"});
-        put("czech republic", new String[]{"cz"});
-        put("denmark", new String[]{"dk", "fo"});
-        put("estonia", new String[]{"ee"});
-        put("finland", new String[]{"fi"});
-        put("france", new String[]{"fr"});
-        put("germany", new String[]{"de"});
-        put("greece", new String[]{"gr"});
-        put("hungary", new String[]{"hu"});
-        put("iceland", new String[]{"is"});
-        put("ireland", new String[]{"ie"});
-        put("italy", new String[]{"it"});
-        put("kosovo", new String[]{"xk"});
-        put("latvia", new String[]{"lv"});
-        put("liechtenstein", new String[]{"li"});
-        put("lithuania", new String[]{"lt"});
-        put("luxembourg", new String[]{"lu"});
-        put("malta", new String[]{"mt"});
-        put("moldova", new String[]{"md", "transnistria1", "transnistria2", "transnistria3"});
-        put("moldavia", new String[]{"md", "transnistria1", "transnistria2", "transnistria3"});
-        put("monaco", new String[]{"mc"});
-        put("montenegro", new String[]{"me"});
-        put("netherlands", new String[]{"nl"});
-        put("macedonia", new String[]{"mk"});
-        put("north macedonia", new String[]{"mk"});
-        put("norway", new String[]{"no"});
-        put("poland", new String[]{"pl"});
-        put("portugal", new String[]{"pt"});
-        put("romania", new String[]{"ro"});
-        put("russia", new String[]{"ru-main", "ru-kgd", "crimea_disputed"});
-        put("san marino", new String[]{"sm"});
-        put("serbia", new String[]{"rs"});
-        put("slovakia", new String[]{"sk"});
-        put("slovenia", new String[]{"si"});
-        put("spain", new String[]{"es"});
-        put("sweden", new String[]{"se"});
-        put("switzerland", new String[]{"ch"});
-        put("turkey", new String[]{"tr"});
-        put("ukraine", new String[]{"ua"});
-        put("united kingdom", new String[]{"gb-gbn", "im", "gb-nir"});
-        put("uk", new String[]{"gb-gbn", "im", "gb-nir"});
-        put("great britain", new String[]{"gb-gbn", "im", "gb-nir"});
-        put("vatican", new String[]{"va"});
-        put("vatican city", new String[]{"va"});
+        put("algeria", new String[]{"dz"});
+        put("angola", new String[]{"ao"});
+        put("benin", new String[]{"bj"});
+        put("botswana", new String[]{"bw"});
+        put("burkina faso", new String[]{"bf"});
+        put("burundi", new String[]{"bi"});
+        put("cabo verde", new String[]{"cv"});
+        put("cameroon", new String[]{"cm"});
+        put("central african republic", new String[]{"cf"});
+        put("chad", new String[]{"td"});
+        put("comoros", new String[]{"km"});
+        put("democratic republic of the congo", new String[]{"cd"});
+        put("republic of the congo", new String[]{"cg"});
+        put("djibouti", new String[]{"dj"});
+        put("egypt", new String[]{"eg"});
+        put("equatorial guinea", new String[]{"gq"});
+        put("eritrea", new String[]{"er"});
+        put("eswatini", new String[]{"sz"});
+        put("ethiopia", new String[]{"et"});
+        put("gabon", new String[]{"ga"});
+        put("gambia", new String[]{"gm"});
+        put("ghana", new String[]{"gh"});
+        put("guinea", new String[]{"gn"});
+        put("guinea-bissau", new String[]{"gw"});
+        put("ivory coast", new String[]{"ci"});
+        put("kenya", new String[]{"ke"});
+        put("lesotho", new String[]{"ls"});
+        put("liberia", new String[]{"lr"});
+        put("libya", new String[]{"ly"});
+        put("madagascar", new String[]{"mg"});
+        put("malawi", new String[]{"mw"});
+        put("mali", new String[]{"ml"});
+        put("mauritania", new String[]{"mr"});
+        put("mauritius", new String[]{"mu"});
+        put("morocco", new String[]{"ma"});
+        put("mozambique", new String[]{"mz"});
+        put("namibia", new String[]{"na"});
+        put("niger", new String[]{"ne"});
+        put("nigeria", new String[]{"ng"});
+        put("rwanda", new String[]{"rw"});
+        put("sao tome and principe", new String[]{"st"});
+        put("senegal", new String[]{"sn"});
+        put("seychelles", new String[]{"sc"});
+        put("sierra leone", new String[]{"sl"});
+        put("somalia", new String[]{"so"});
+        put("south africa", new String[]{"za"});
+        put("south sudan", new String[]{"ss"});
+        put("sudan", new String[]{"sd"});
+        put("tanzania", new String[]{"tz"});
+        put("togo", new String[]{"tg"});
+        put("tunisia", new String[]{"tn"});
+        put("uganda", new String[]{"ug"});
+        put("zambia", new String[]{"zm"});
+        put("zimbabwe", new String[]{"zw"});
     }};
 
     Map<String, String> aliasMap = new HashMap<String, String>() {{
-        put("uk", "united kingdom");
-        put("great britain", "united kingdom");
-        put("north macedonia", "macedonia");
-        put("bosnia and herzegovina", "bosnia");
-        put("czech republic", "czechia");
-        put("czech", "czechia");
-        put("vatican city", "vatican");
-        put("moldova", "moldavia");
+        put("car", "central african republic");
+        put("drc", "democratic republic of the congo");
+        put("côte d'ivoire", "ivory coast");
     }};
 
     public void reset(View view) { AlertDialog dialog = createDialog(); dialog.show(); }
@@ -278,7 +269,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                pm.resetQuiz("europe");
+                pm.resetQuiz("africa");
                 recreate();
             }
         });
