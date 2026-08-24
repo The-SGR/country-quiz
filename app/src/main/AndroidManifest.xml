@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -28,10 +26,22 @@
         </activity>
         <activity android:name=".SelectionActivity" />
         <activity android:name=".AllUsStatesActivity"
-                  android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".AllRusSubjectsActivity" />
-        <activity android:name=".AllEuropeCountriesActivity" />
+        <activity android:name=".AllRusSubjectsActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AllEuropeCountriesActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AllAsiaCountriesActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AllAfricaCountriesActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AllNorthAmericaCountriesActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AllSouthAmericaCountriesActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AllOceaniaCountriesActivity"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

@@ -1,8 +1,15 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.CountryQuiz" parent="Theme.Material3.DayNight.NoActionBar">
-
+        <item name="android:fontFamily">@font/finlandica</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textFontWeight">700</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="Theme.CountryQuiz" parent="Base.Theme.CountryQuiz" />
+    <style name="Theme.CountryQuiz" parent="Base.Theme.CountryQuiz">
+        <item name="android:fontFamily">@font/finlandica</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

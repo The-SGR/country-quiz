@@ -6,13 +6,11 @@
     <string name="continue_text">Continue</string>
     <string name="selection_text">Choose a Quiz</string>
     <string name="us_states_quiz">Name all 50 US states</string>
-    <string name="rus_subjects_quiz">Name all 85 (83) subjects of Russia</string>
+    <string name="rus_subjects_quiz">Name all 83 subjects of Russia</string>
     <string name="check_btn">Check</string>
-    <string name="text_hint">Enter the subject name (only in English)</string>
-    <string name="text_hint1">Enter the country name (only in English)</string>
+    <string name="text_hint">Enter the subject name</string>
+    <string name="text_hint1">Enter the country name</string>
     <string name="github_button" translatable="false">GitHub</string>
-    <string name="alpha_tg">For any other questions, <a href="https://t.me/the_sgr1">contact me on Telegram.</a></string>
-    <string name="alpha_github">Alpha Version.\nIf you have any issues, <a href="https://github.com/The-SGR/country-quiz">please contact me on GitHub</a>.</string>
     <string name="tg_button" translatable="false">Telegram</string>
     <string name="toast_back_press">Press back again to exit</string>
     <string name="toast_correct">Correct</string>
@@ -39,4 +37,9 @@
     </string-array>
     <string name="theme_spinner_text">Theme</string>
     <string name="old_map">This is a map from before 2014!</string>
+    <string name="reset_btn">Reset Progress</string>
+    <string name="reset_alert_msg">This action cannot be undone!</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="world_countries_quiz">Name all Countries in the World</string>
 </resources>

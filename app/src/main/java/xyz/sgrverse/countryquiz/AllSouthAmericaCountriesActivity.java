@@ -2,9 +2,7 @@ package xyz.sgrverse.countryquiz;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -20,12 +18,11 @@ import androidx.activity.OnBackPressedCallback;
 
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-public class AllEuropeCountriesActivity extends BaseActivity {
+public class AllSouthAmericaCountriesActivity extends BaseActivity {
 
     public long backPressedTime = 0;
     private String svgContent;
@@ -42,7 +39,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
         setContentView(R.layout.activity_quiz);
 
         pm = new ProgressManager(this);
-        guessed = pm.getGuessed("europe");
+        guessed = pm.getGuessed("south_america");
 
         TextView versionText = findViewById(R.id.versionText);
         versionText.setText(BuildConfig.VERSION_NAME);
@@ -54,7 +51,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
                     finish();
                 } else {
                     backPressedTime = System.currentTimeMillis();
-                    Toast.makeText(AllEuropeCountriesActivity.this, R.string.toast_back_press, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AllSouthAmericaCountriesActivity.this, R.string.toast_back_press, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -70,7 +67,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
         mapView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
         mapView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-        counter.setText(guessed.size() + " / 47");
+        counter.setText(guessed.size() + " / 11");
 
         check.setOnClickListener(v -> {
             String userInput = input.getText().toString().toLowerCase().trim();
@@ -83,7 +80,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
 
             if (codes != null && !guessed.contains(userInput)) {
                 guessed.add(userInput);
-                pm.markGuessed("europe", userInput);
+                pm.markGuessed("south_america", userInput);
 
                 for (String code : codes) {
                     colorState(code);
@@ -97,9 +94,9 @@ public class AllEuropeCountriesActivity extends BaseActivity {
             }
 
             input.setText("");
-            counter.setText(guessed.size() + " / 47");
+            counter.setText(guessed.size() + " / 11");
 
-            if (guessed.size() == 47) {
+            if (guessed.size() == 11) {
                 Toast.makeText(this, R.string.toast_win, Toast.LENGTH_LONG).show();
             }
         });
@@ -118,13 +115,13 @@ public class AllEuropeCountriesActivity extends BaseActivity {
 
     private void loadSvg() {
         try {
-            InputStream is = getResources().openRawResource(R.raw.europe);
+            InputStream is = getResources().openRawResource(R.raw.south_america);
             Scanner scanner = new Scanner(is).useDelimiter("\\A");
             svgContent = scanner.hasNext() ? scanner.next() : "";
             svgContent = svgContent
-                    .replace("width=\"593\"", "")
-                    .replace("height=\"606\"", "")
-                    .replace("<svg", "<svg viewBox=\"50 0 500 600\"");
+                    .replace("width=\"712\"", "")
+                    .replace("height=\"960\"", "")
+                    .replace("<svg", "<svg viewBox=\"459 555 435.744 587.7551\"");
             scanner.close();
 
 
@@ -175,7 +172,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
 
     private void colorState(String stateCode) {
 
-        String rule = "#" + stateCode + " { fill: #406c14 !important; }";
+        String rule = "." + stateCode + " { fill: #406c14 !important; }";
 
         if (!dynamicStyles.contains(rule)) {
             dynamicStyles += rule + "\n";
@@ -189,7 +186,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
             String[] codes = stateMap.get(country);
             if (codes != null) {
                 for (String code : codes) {
-                    String rule = "#" + code + " { fill: #406c14 !important; }";
+                    String rule = "." + code + " { fill: #406c14 !important; }";
                     if (!dynamicStyles.contains(rule)) {
                         dynamicStyles += rule + "\n";
                     }
@@ -199,72 +196,22 @@ public class AllEuropeCountriesActivity extends BaseActivity {
     }
 
     Map<String, String[]> stateMap = new HashMap<String, String[]>() {{
-        put("albania", new String[]{"al"});
-        put("andorra", new String[]{"ad"});
-        put("austria", new String[]{"at"});
-        put("belarus", new String[]{"by"});
-        put("belgium", new String[]{"be"});
-        put("bosnia and herzegovina", new String[]{"ba"});
-        put("bosnia", new String[]{"ba"});
-        put("bulgaria", new String[]{"bg"});
-        put("croatia", new String[]{"hr"});
-        put("cyprus", new String[]{"cy", "nc"});
-        put("czechia", new String[]{"cz"});
-        put("czech", new String[]{"cz"});
-        put("czech republic", new String[]{"cz"});
-        put("denmark", new String[]{"dk", "fo"});
-        put("estonia", new String[]{"ee"});
-        put("finland", new String[]{"fi"});
-        put("france", new String[]{"fr"});
-        put("germany", new String[]{"de"});
-        put("greece", new String[]{"gr"});
-        put("hungary", new String[]{"hu"});
-        put("iceland", new String[]{"is"});
-        put("ireland", new String[]{"ie"});
-        put("italy", new String[]{"it"});
-        put("kosovo", new String[]{"xk"});
-        put("latvia", new String[]{"lv"});
-        put("liechtenstein", new String[]{"li"});
-        put("lithuania", new String[]{"lt"});
-        put("luxembourg", new String[]{"lu"});
-        put("malta", new String[]{"mt"});
-        put("moldova", new String[]{"md", "transnistria1", "transnistria2", "transnistria3"});
-        put("moldavia", new String[]{"md", "transnistria1", "transnistria2", "transnistria3"});
-        put("monaco", new String[]{"mc"});
-        put("montenegro", new String[]{"me"});
-        put("netherlands", new String[]{"nl"});
-        put("macedonia", new String[]{"mk"});
-        put("north macedonia", new String[]{"mk"});
-        put("norway", new String[]{"no"});
-        put("poland", new String[]{"pl"});
-        put("portugal", new String[]{"pt"});
-        put("romania", new String[]{"ro"});
-        put("russia", new String[]{"ru-main", "ru-kgd", "crimea_disputed"});
-        put("san marino", new String[]{"sm"});
-        put("serbia", new String[]{"rs"});
-        put("slovakia", new String[]{"sk"});
-        put("slovenia", new String[]{"si"});
-        put("spain", new String[]{"es"});
-        put("sweden", new String[]{"se"});
-        put("switzerland", new String[]{"ch"});
-        put("turkey", new String[]{"tr"});
-        put("ukraine", new String[]{"ua"});
-        put("united kingdom", new String[]{"gb-gbn", "im", "gb-nir"});
-        put("uk", new String[]{"gb-gbn", "im", "gb-nir"});
-        put("great britain", new String[]{"gb-gbn", "im", "gb-nir"});
-        put("vatican", new String[]{"va"});
-        put("vatican city", new String[]{"va"});
+        put("argentina", new String[]{"ar"});
+        put("bolivia", new String[]{"bo"});
+        put("brazil", new String[]{"br"});
+        put("chile", new String[]{"cl"});
+        put("colombia", new String[]{"co"});
+        put("ecuador", new String[]{"ec"});
+        put("guyana", new String[]{"gy"});
+        put("paraguay", new String[]{"py"});
+        put("peru", new String[]{"pe"});
+        put("suriname", new String[]{"sr"});
+        put("uruguay", new String[]{"uy"});
+        put("venezuela", new String[]{"ve"});
     }};
 
     Map<String, String> aliasMap = new HashMap<String, String>() {{
-        put("uk", "united kingdom");
-        put("great britain", "united kingdom");
-        put("north macedonia", "macedonia");
-        put("bosnia and herzegovina", "bosnia");
-        put("czech republic", "czechia");
-        put("czech", "czechia");
-        put("vatican city", "vatican");
-        put("moldova", "moldavia");
+
     }};
 
     public void reset(View view) { AlertDialog dialog = createDialog(); dialog.show(); }
@@ -278,7 +225,7 @@ public class AllEuropeCountriesActivity extends BaseActivity {
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                pm.resetQuiz("europe");
+                pm.resetQuiz("south_america");
                 recreate();
             }
         });

@@ -1,6 +1,8 @@
 package xyz.sgrverse.countryquiz;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -27,12 +29,18 @@ public class AllRusSubjectsActivity extends BaseActivity {
     private String svgContent;
     WebView mapView;
 
-    @SuppressLint("SetTextI18n") //TODO: ДОРАБОТАТЬ!!!!!!
+    private ProgressManager pm;
+    private Set<String> guessed;
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_all_rus_subjects);
+        setContentView(R.layout.activity_quiz);
+
+        pm = new ProgressManager(this);
+        guessed = pm.getGuessed("russia");
 
         TextView versionText = findViewById(R.id.versionText);
         versionText.setText(BuildConfig.VERSION_NAME);
@@ -61,6 +69,8 @@ public class AllRusSubjectsActivity extends BaseActivity {
         mapView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
         mapView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
+        counter.setText(guessed.size() + " / 83");
+
         check.setOnClickListener(v -> {
             String userInput = input.getText().toString().toLowerCase().trim();
 
@@ -72,6 +82,7 @@ public class AllRusSubjectsActivity extends BaseActivity {
 
             if (codes != null && !guessed.contains(userInput)) {
                 guessed.add(userInput);
+                pm.markGuessed("russia", userInput);
 
                 for (String code : codes) {
                     colorState(code);
@@ -87,7 +98,7 @@ public class AllRusSubjectsActivity extends BaseActivity {
             input.setText("");
             counter.setText(guessed.size() + " / 83");
 
-            if (guessed.size() == 47) {
+            if (guessed.size() == 83) {
                 Toast.makeText(this, R.string.toast_win, Toast.LENGTH_LONG).show();
             }
         });
@@ -101,6 +112,7 @@ public class AllRusSubjectsActivity extends BaseActivity {
         });
 
         loadSvg();
+        restoreProgress();
     }
 
     private void loadSvg() {
@@ -120,6 +132,7 @@ public class AllRusSubjectsActivity extends BaseActivity {
                 return;
             }
 
+            restoreProgress();
             renderSvg();
 
         } catch (Exception e) {
@@ -158,7 +171,19 @@ public class AllRusSubjectsActivity extends BaseActivity {
         renderSvg();
     }
 
-    Set<String> guessed = new HashSet<>();
+    private void restoreProgress() {
+        for (String country : guessed) {
+            String[] codes = stateMap.get(country);
+            if (codes != null) {
+                for (String code : codes) {
+                    String rule = "#" + code + " { fill: #406c14 !important; }";
+                    if (!dynamicStyles.contains(rule)) {
+                        dynamicStyles += rule + "\n";
+                    }
+                }
+            }
+        }
+    }
 
     Map<String, String[]> stateMap = new HashMap<String, String[]>() {{
         put("adygea", new String[]{"Adygeya"});
@@ -392,5 +417,28 @@ public class AllRusSubjectsActivity extends BaseActivity {
         put("yaroslavl", "yaroslavl oblast");
     }};
 
+    public void reset(View view) { AlertDialog dialog = createDialog(); dialog.show(); }
     public void back(View view) { finish(); }
+
+    AlertDialog createDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.reset_btn);
+        builder.setMessage(R.string.reset_alert_msg);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                pm.resetQuiz("russia");
+                recreate();
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        return builder.create();
+    }
 }

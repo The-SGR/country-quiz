@@ -49,13 +49,13 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        gitBtn = findViewById(R.id.github_btn); //я нагло скопировал это из силли кликера. Даже переменные не менял. Какой я негодяй
+        gitBtn = findViewById(R.id.github_btn);
 
         gitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent redirect = new Intent(Intent.ACTION_VIEW);
-                redirect.setData(Uri.parse("https://github.com/The-SGR"));
+                redirect.setData(Uri.parse("https://github.com/The-SGR/country-quiz"));
                 startActivity(redirect);
             }
         });
@@ -70,10 +70,6 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        TextView tg = findViewById(R.id.textView2);
-        tg.setMovementMethod(LinkMovementMethod.getInstance());
-
-        UpdateChecker.checkForUpdates(this);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
 
@@ -84,9 +80,5 @@ public class MainActivity extends BaseActivity {
     public void openSettings (View view) {
         startActivity(new Intent(this, SettingsActivity.class));
     }
-
-//    public void check(View view) {
-//        UpdateChecker.checkForUpdates(this);
-//    }
 
 }

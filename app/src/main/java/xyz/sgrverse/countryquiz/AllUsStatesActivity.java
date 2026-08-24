@@ -1,6 +1,8 @@
 package xyz.sgrverse.countryquiz;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -27,12 +29,18 @@ public class AllUsStatesActivity extends BaseActivity {
     private String svgContent;
     WebView mapView;
 
+    private ProgressManager pm;
+    private Set<String> guessed;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_all_us_states);
+        setContentView(R.layout.activity_quiz);
+
+        pm = new ProgressManager(this);
+        guessed = pm.getGuessed("usa");
 
         TextView versionText = findViewById(R.id.versionText);
         versionText.setText(BuildConfig.VERSION_NAME);
@@ -61,14 +69,24 @@ public class AllUsStatesActivity extends BaseActivity {
         mapView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
         mapView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
+        counter.setText(guessed.size() + " / 50");
+
         check.setOnClickListener(v -> {
             String userInput = input.getText().toString().toLowerCase().trim();
-            String code = stateMap.get(userInput);
 
-            if (code != null && !guessed.contains(userInput)) {
+            if (aliasMap.containsKey(userInput)) {
+                userInput = aliasMap.get(userInput);
+            }
+
+            String[] codes = stateMap.get(userInput);
+
+            if (codes != null && !guessed.contains(userInput)) {
                 guessed.add(userInput);
+                pm.markGuessed("usa", userInput);
 
-                colorState(code);
+                for (String code : codes) {
+                    colorState(code);
+                }
 
                 Toast.makeText(this, R.string.toast_correct, Toast.LENGTH_SHORT).show();
             } else if (guessed.contains(userInput)) {
@@ -94,6 +112,7 @@ public class AllUsStatesActivity extends BaseActivity {
         });
 
         loadSvg();
+        restoreProgress();
     }
 
     private void loadSvg() {
@@ -113,6 +132,7 @@ public class AllUsStatesActivity extends BaseActivity {
                 return;
             }
 
+            restoreProgress();
             renderSvg();
 
         } catch (Exception e) {
@@ -151,63 +171,99 @@ public class AllUsStatesActivity extends BaseActivity {
         renderSvg();
     }
 
-    Set<String> guessed = new HashSet<>();
+    private void restoreProgress() {
+        for (String country : guessed) {
+            String[] codes = stateMap.get(country);
+            if (codes != null) {
+                for (String code : codes) {
+                    String rule = "." + code + " { fill: #406c14 !important; }";
+                    if (!dynamicStyles.contains(rule)) {
+                        dynamicStyles += rule + "\n";
+                    }
+                }
+            }
+        }
+    }
 
-    Map<String, String> stateMap = new HashMap<String, String>() {{
-        put("alabama", "al");
-        put("alaska", "ak");
-        put("arizona", "az");
-        put("arkansas", "ar");
-        put("california", "ca");
-        put("colorado", "co");
-        put("connecticut", "ct");
-        put("delaware", "de");
-        put("florida", "fl");
-        put("georgia", "ga");
-        put("hawaii", "hi");
-        put("idaho", "id");
-        put("illinois", "il");
-        put("indiana", "in");
-        put("iowa", "ia");
-        put("kansas", "ks");
-        put("kentucky", "ky");
-        put("louisiana", "la");
-        put("maine", "me");
-        put("maryland", "md");
-        put("massachusetts", "ma");
-        put("michigan", "mi");
-        put("minnesota", "mn");
-        put("mississippi", "ms");
-        put("missouri", "mo");
-        put("montana", "mt");
-        put("nebraska", "ne");
-        put("nevada", "nv");
-        put("new hampshire", "nh");
-        put("new jersey", "nj");
-        put("new mexico", "nm");
-        put("new york", "ny");
-        put("north carolina", "nc");
-        put("north dakota", "nd");
-        put("ohio", "oh");
-        put("oklahoma", "ok");
-        put("oregon", "or");
-        put("pennsylvania", "pa");
-        put("rhode island", "ri");
-        put("south carolina", "sc");
-        put("south dakota", "sd");
-        put("tennessee", "tn");
-        put("texas", "tx");
-        put("utah", "ut");
-        put("vermont", "vt");
-        put("virginia", "va");
-        put("washington", "wa");
-        put("west virginia", "wv");
-        put("wisconsin", "wi");
-        put("wyoming", "wy");
+    Map<String, String[]> stateMap = new HashMap<String, String[]>() {{
+        put("alabama", new String[]{"al"});
+        put("alaska", new String[]{"ak"});
+        put("arizona", new String[]{"az"});
+        put("arkansas", new String[]{"ar"});
+        put("california", new String[]{"ca"});
+        put("colorado", new String[]{"co"});
+        put("connecticut", new String[]{"ct"});
+        put("delaware", new String[]{"de"});
+        put("florida", new String[]{"fl"});
+        put("georgia", new String[]{"ga"});
+        put("hawaii", new String[]{"hi"});
+        put("idaho", new String[]{"id"});
+        put("illinois", new String[]{"il"});
+        put("indiana", new String[]{"in"});
+        put("iowa", new String[]{"ia"});
+        put("kansas", new String[]{"ks"});
+        put("kentucky", new String[]{"ky"});
+        put("louisiana", new String[]{"la"});
+        put("maine", new String[]{"me"});
+        put("maryland", new String[]{"md"});
+        put("massachusetts", new String[]{"ma"});
+        put("michigan", new String[]{"mi"});
+        put("minnesota", new String[]{"mn"});
+        put("mississippi", new String[]{"ms"});
+        put("missouri", new String[]{"mo"});
+        put("montana", new String[]{"mt"});
+        put("nebraska", new String[]{"ne"});
+        put("nevada", new String[]{"nv"});
+        put("new hampshire", new String[]{"nh"});
+        put("new jersey", new String[]{"nj"});
+        put("new mexico", new String[]{"nm"});
+        put("new york", new String[]{"ny"});
+        put("north carolina", new String[]{"nc"});
+        put("north dakota", new String[]{"nd"});
+        put("ohio", new String[]{"oh"});
+        put("oklahoma", new String[]{"ok"});
+        put("oregon", new String[]{"or"});
+        put("pennsylvania", new String[]{"pa"});
+        put("rhode island", new String[]{"ri"});
+        put("south carolina", new String[]{"sc"});
+        put("south dakota", new String[]{"sd"});
+        put("tennessee", new String[]{"tn"});
+        put("texas", new String[]{"tx"});
+        put("utah", new String[]{"ut"});
+        put("vermont", new String[]{"vt"});
+        put("virginia", new String[]{"va"});
+        put("washington", new String[]{"wa"});
+        put("west virginia", new String[]{"wv"});
+        put("wisconsin", new String[]{"wi"});
+        put("wyoming", new String[]{"wy"});
     }};
 
+    Map<String, String> aliasMap = new HashMap<String, String>() {{
+
+    }};
+
+    public void reset(View view) { AlertDialog dialog = createDialog(); dialog.show(); }
     public void back(View view) { finish(); }
 
-    // я так задолбался делать это
-    // az963258: тебе ещё субъекты делать :-)
+    AlertDialog createDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.reset_btn);
+        builder.setMessage(R.string.reset_alert_msg);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                pm.resetQuiz("usa");
+                recreate();
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        return builder.create();
+    }
 }
