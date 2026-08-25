@@ -115,7 +115,7 @@
                 android:layout_height="50dp"
                 android:onClick="wip"
                 android:layout_margin="6dp"
-                android:backgroundTint="#B40808"
+                android:backgroundTint="@color/red"
                 android:text="@string/world_countries_quiz" />
         </LinearLayout>
 

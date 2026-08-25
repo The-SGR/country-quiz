@@ -67,7 +67,7 @@ public class AllSouthAmericaCountriesActivity extends BaseActivity {
         mapView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
         mapView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-        counter.setText(guessed.size() + " / 11");
+        counter.setText(guessed.size() + " / 12");
 
         check.setOnClickListener(v -> {
             String userInput = input.getText().toString().toLowerCase().trim();
@@ -94,9 +94,9 @@ public class AllSouthAmericaCountriesActivity extends BaseActivity {
             }
 
             input.setText("");
-            counter.setText(guessed.size() + " / 11");
+            counter.setText(guessed.size() + " / 12");
 
-            if (guessed.size() == 11) {
+            if (guessed.size() == 12) {
                 Toast.makeText(this, R.string.toast_win, Toast.LENGTH_LONG).show();
             }
         });

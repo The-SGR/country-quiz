@@ -51,5 +51,19 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<!--TODO:-->
+<!--    <Button-->
+<!--        android:id="@+id/reset_btn"-->
+<!--        android:layout_width="260dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/reset_all_progress"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.508"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:backgroundTint="@color/red"-->
+<!--        android:onClick="reset"-->
+<!--        app:layout_constraintVertical_bias="0.655" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

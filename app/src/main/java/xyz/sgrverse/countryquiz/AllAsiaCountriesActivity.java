@@ -70,7 +70,7 @@ public class AllAsiaCountriesActivity extends BaseActivity {
         mapView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
         mapView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-        counter.setText(guessed.size() + " / 51");
+        counter.setText(guessed.size() + " / 52");
 
         check.setOnClickListener(v -> {
             String userInput = input.getText().toString().toLowerCase().trim();
@@ -97,9 +97,9 @@ public class AllAsiaCountriesActivity extends BaseActivity {
             }
 
             input.setText("");
-            counter.setText(guessed.size() + " / 51");
+            counter.setText(guessed.size() + " / 52");
 
-            if (guessed.size() == 51) {
+            if (guessed.size() == 52) {
                 Toast.makeText(this, R.string.toast_win, Toast.LENGTH_LONG).show();
             }
         });

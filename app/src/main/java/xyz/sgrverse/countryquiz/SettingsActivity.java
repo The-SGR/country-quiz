@@ -1,5 +1,7 @@
 package xyz.sgrverse.countryquiz;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,7 @@ import androidx.activity.EdgeToEdge;
 public class SettingsActivity extends BaseActivity {
 
     Spinner themeSpinner;
+    private ProgressManager pm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +97,30 @@ public class SettingsActivity extends BaseActivity {
         );
     }
 
+    public void reset(View view) { AlertDialog dialog = createDialog(); dialog.show(); }
     public void back(View view) {
         finish();
     }
 
+    AlertDialog createDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.reset_btn);
+        builder.setMessage(R.string.reset_alert_msg);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                pm.resetAllProgress();
+                recreate();
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        return builder.create();
+    }
 }

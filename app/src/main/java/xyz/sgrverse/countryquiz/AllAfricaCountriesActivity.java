@@ -67,7 +67,7 @@ public class AllAfricaCountriesActivity extends BaseActivity {
         mapView.setBackgroundColor(android.graphics.Color.TRANSPARENT);
         mapView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-        counter.setText(guessed.size() + " / 53");
+        counter.setText(guessed.size() + " / 55");
 
         check.setOnClickListener(v -> {
             String userInput = input.getText().toString().toLowerCase().trim();
@@ -94,9 +94,9 @@ public class AllAfricaCountriesActivity extends BaseActivity {
             }
 
             input.setText("");
-            counter.setText(guessed.size() + " / 53");
+            counter.setText(guessed.size() + " / 55");
 
-            if (guessed.size() == 53) {
+            if (guessed.size() == 55) {
                 Toast.makeText(this, R.string.toast_win, Toast.LENGTH_LONG).show();
             }
         });
@@ -172,7 +172,7 @@ public class AllAfricaCountriesActivity extends BaseActivity {
 
     private void colorState(String stateCode) {
 
-        String rule = "#" + stateCode + " { fill: #406c14 !important; }";
+        String rule = "." + stateCode + " { fill: #406c14 !important; }";
 
         if (!dynamicStyles.contains(rule)) {
             dynamicStyles += rule + "\n";
@@ -186,7 +186,7 @@ public class AllAfricaCountriesActivity extends BaseActivity {
             String[] codes = stateMap.get(country);
             if (codes != null) {
                 for (String code : codes) {
-                    String rule = "#" + code + " { fill: #406c14 !important; }";
+                    String rule = "." + code + " { fill: #406c14 !important; }";
                     if (!dynamicStyles.contains(rule)) {
                         dynamicStyles += rule + "\n";
                     }
@@ -248,6 +248,7 @@ public class AllAfricaCountriesActivity extends BaseActivity {
         put("togo", new String[]{"tg"});
         put("tunisia", new String[]{"tn"});
         put("uganda", new String[]{"ug"});
+        put("western sahara", new String[]{"eh"});
         put("zambia", new String[]{"zm"});
         put("zimbabwe", new String[]{"zw"});
     }};
@@ -256,6 +257,7 @@ public class AllAfricaCountriesActivity extends BaseActivity {
         put("car", "central african republic");
         put("drc", "democratic republic of the congo");
         put("côte d'ivoire", "ivory coast");
+        put("congo", "republic of the congo");
     }};
 
     public void reset(View view) { AlertDialog dialog = createDialog(); dialog.show(); }

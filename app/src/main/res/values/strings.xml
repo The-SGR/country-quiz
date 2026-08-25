@@ -42,4 +42,5 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="world_countries_quiz">Name all Countries in the World</string>
+    <string name="reset_all_progress">Reset all Progress</string>
 </resources>
